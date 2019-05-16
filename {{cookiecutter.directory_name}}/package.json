@@ -1,0 +1,29 @@
+{
+  "name": "{{ cookiecutter.repo_name }}",
+  "version": "{{ cookiecutter.version }}",
+  "description": "{{ cookiecutter.project_name }}",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  {% if cookiecutter.repo_owner -%}
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/{{ cookiecutter.repo_owner }}/{{ cookiecutter.repo_name }}.git"
+  },
+  {% endif -%}
+  "license": "{{ cookiecutter.open_source_license }}",
+  "dependencies": {
+    "prettier": "^1.15.3",
+    "yargs": "11.0.0",
+    "process": "latest"
+  },
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "pretty-quick": "^1.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
